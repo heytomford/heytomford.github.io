@@ -1,0 +1,18 @@
+#leadFader {
+  width: calc(100vw - 20px);
+  left: 0;
+}
+
+.cbp-af-header {
+  padding-right: 20px;
+}
+
+.no_line {
+  border-bottom: none;
+}
+
+@media(max-width: 768px) {
+  #cbp-bislideshow {
+    margin-top: 66px;
+  }
+}
