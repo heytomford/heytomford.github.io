@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ken Burns Image Carousel</title>
+    <title>Marla Lea Birkner</title>
     <style>
         body {
             margin: 0;
@@ -20,18 +20,7 @@
             object-fit: cover;
             position: absolute;
             opacity: 0;
-            animation: kenburns 5s infinite alternate;
-        }
-
-        @keyframes kenburns {
-            0%, 100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-            50% {
-                transform: scale(1.1);
-                opacity: 1;
-            }
+            transition: opacity 1s ease-in-out;
         }
     </style>
 </head>
@@ -50,37 +39,16 @@
             });
         }
 
-        function nextImage() {
-            showImage(currentIndex);
-            currentIndex = (currentIndex + 1) % images.length;
-        }
-
         function startCarousel() {
             setInterval(() => {
-                nextImage();
+                currentIndex = (currentIndex + 1) % images.length;
+                showImage(currentIndex);
             }, 5000);
-        }
-
-        function cycleImages() {
-            images.forEach((image, index) => {
-                setTimeout(() => {
-                    currentIndex = index;
-                    nextImage();
-                }, index * 5000);
-            });
-            setInterval(() => {
-                images.forEach((image, index) => {
-                    setTimeout(() => {
-                        currentIndex = index;
-                        nextImage();
-                    }, index * 5000 + images.length * 5000);
-                });
-            }, images.length * 5000);
         }
 
         // Initial setup
         showImage(currentIndex);
-        cycleImages();
+        startCarousel();
     </script>
 </body>
 </html>
