@@ -51,8 +51,8 @@
         }
 
         function nextImage() {
-            currentIndex = (currentIndex + 1) % images.length;
             showImage(currentIndex);
+            currentIndex = (currentIndex + 1) % images.length;
         }
 
         function startCarousel() {
@@ -61,9 +61,26 @@
             }, 5000);
         }
 
+        function cycleImages() {
+            images.forEach((image, index) => {
+                setTimeout(() => {
+                    currentIndex = index;
+                    nextImage();
+                }, index * 5000);
+            });
+            setInterval(() => {
+                images.forEach((image, index) => {
+                    setTimeout(() => {
+                        currentIndex = index;
+                        nextImage();
+                    }, index * 5000 + images.length * 5000);
+                });
+            }, images.length * 5000);
+        }
+
         // Initial setup
         showImage(currentIndex);
-        startCarousel();
+        cycleImages();
     </script>
 </body>
 </html>
