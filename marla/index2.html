@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marla Lea Birkner</title>
+    <title>Ken Burns Image Carousel</title>
     <style>
         body {
             margin: 0;
@@ -19,17 +19,17 @@
             height: 100%;
             object-fit: cover;
             position: absolute;
-            animation: kenburns 5s infinite alternate;
             opacity: 0;
+            animation: kenburns 5s infinite alternate;
         }
 
         @keyframes kenburns {
-            0% {
+            0%, 100% {
                 transform: scale(1);
                 opacity: 1;
             }
-            100% {
-                transform: scale(1.5);
+            50% {
+                transform: scale(1.1);
                 opacity: 1;
             }
         }
